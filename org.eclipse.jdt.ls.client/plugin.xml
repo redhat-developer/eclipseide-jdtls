@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.lsp4e.languageServer">
+      <server
+            class="org.eclipse.jdt.ls.client.JDTLanguageServer"
+            id="org.eclipse.jdt.ls.client.server"
+            label="Dockerfile Language Server">
+      </server>
+      <contentTypeMapping
+            contentType="org.eclipse.jdt.ls.client"
+            id="org.eclipse.jdt.ls.client.server">
+      </contentTypeMapping>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editorContentTypeBinding
+            contentTypeId="org.eclipse.jdt.ls.client"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
+   </extension>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.text"
+            file-extensions="java"
+            id="org.eclipse.jdt.ls.client"
+            name="Java File"
+            priority="normal">
+      </content-type>
+   </extension>
+   <extension
+         point="org.eclipse.tm4e.registry.grammars">
+      <grammar
+            path="grammars/java.tmLanguage.json"
+            scopeName="source.java">
+      </grammar>
+      <scopeNameContentTypeBinding
+            contentTypeId="org.eclipse.jdt.ls.client"
+            scopeName="source.java">
+      </scopeNameContentTypeBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.genericeditor.presentationReconcilers">
+      <presentationReconciler
+            class="org.eclipse.tm4e.ui.text.TMPresentationReconciler"
+            contentType="org.eclipse.jdt.ls.client">
+      </presentationReconciler>
+   </extension>
+
+</plugin>

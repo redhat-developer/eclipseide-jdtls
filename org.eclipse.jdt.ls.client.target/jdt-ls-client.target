@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="4.8"?><target name="jdt-ls-client" sequenceNumber="1">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.lsp4e" version="0.0.0"/>
+<unit id="org.eclipse.platform.ide" version="0.0.0"/>
+<repository location="http://download.eclipse.org/lsp4e/snapshots/"/>
+<repository location="http://download.eclipse.org/releases/photon/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="tm-feature.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/tm4e/snapshots/"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20170919201930/repository"/>
+</location>
+</locations>
+<targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+<launcherArgs>
+<vmArgs>-Xms40m
+-Xmx512M</vmArgs>
+<programArgs>-consolelog</programArgs>
+</launcherArgs>
+</target>
