@@ -48,8 +48,6 @@ public class InProcessJDTLSConnectionProvider implements StreamConnectionProvide
 		clientInputStream = Channels.newInputStream(serverOutputToClientInput.source());
 		clientOutputStream = Channels.newOutputStream(clientOutputToServerInput.sink());
 		listener = launcher.startListening();
-		//server.connectClient((JavaLanguageClient)launcher.getRemoteProxy());
-		server.connectClient(new JDTLSLanguageClient());
 		
 		// Store the output streams so we can close them to clean up. The corresponding input
 		// streams should automatically receive an EOF and close.
