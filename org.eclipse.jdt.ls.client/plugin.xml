@@ -6,13 +6,17 @@
       <server
             class="org.eclipse.jdt.ls.client.InProcessJDTLSConnectionProvider"
             clientImpl="org.eclipse.jdt.ls.client.JDTLSLanguageClient"
-            id="org.eclipse.jdt.ls.client.server"
-            label="JDT-LS"
-            singleton="true">
-      </server>
+            id="org.eclipse.jdt.ls.client.inProcessServer"
+            label="JDT-LS (in process)"
+            singleton="true"/>
+      <server
+            class="org.eclipse.jdt.ls.client.JDTLSProductConnectionProvider"
+            id="org.eclipse.jdt.ls.client.extenalServer"
+            label="JDT-LS (extenal)"
+            singleton="true"/>
       <contentTypeMapping
             contentType="org.eclipse.jdt.core.javaSource"
-            id="org.eclipse.jdt.ls.client.server">
+            id="org.eclipse.jdt.ls.client.extenalServer">
       </contentTypeMapping>
    </extension>
    <extension
@@ -46,5 +50,13 @@
             contentTypeId="org.eclipse.jdt.core.javaSource"
             path="grammars/java.languageConfiguration.json">
       </languageConfiguration>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="org.eclipse.jdt.ls.client.JDTLSPrefrencesPage"
+            id="org.eclipse.jdt.ls.client"
+            name="JDT Language Server">
+      </page>
    </extension>
 </plugin>
