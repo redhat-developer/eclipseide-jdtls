@@ -1,5 +1,6 @@
 package org.eclipse.jdt.ls.client;
 
+import org.eclipse.jface.preference.DirectoryFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.PreferencePage;
 import org.eclipse.jface.preference.StringFieldEditor;
@@ -18,7 +19,7 @@ public class JDTLSPrefrencesPage extends FieldEditorPreferencePage implements IW
 
 	@Override
 	protected void createFieldEditors() {
-		addField(new StringFieldEditor(JDTLSProductConnectionProvider.PREF_LOCATION, "Language Server location", getFieldEditorParent()));
+		addField(new DirectoryFieldEditor(JDTLSProductConnectionProvider.PREF_LOCATION, "Language Server location", getFieldEditorParent()));
 	}
 
 }

@@ -38,7 +38,7 @@ class TestLSPIntegration {
 
 	@Test
 	void testLSWorks() throws IOException, CoreException, BadLocationException {
-		JDTLSClientPlugin.getInstance().getPreferenceStore().setValue(JDTLSProductConnectionProvider.PREF_LOCATION, "/home/mistria/Downloads/jdt-language-server-latest/");
+		JDTLSClientPlugin.getInstance().downloadJDTLS();
 
 		IProject project = (IProject) ResourcesPlugin.getWorkspace().getRoot().getProject(Long.toString(System.nanoTime()));
 		project.create(null);
