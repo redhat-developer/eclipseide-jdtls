@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Java edition support using JDT Language Server Client
 Bundle-SymbolicName: org.eclipse.jdt.ls.client;singleton:=true
 Bundle-Version: 0.1.0.qualifier
+Export-Package: org.eclipse.jdt.ls.client;x-friends:="org.eclipse.jdt.ls.client.test"
 Bundle-Vendor: Eclipse JDT
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
