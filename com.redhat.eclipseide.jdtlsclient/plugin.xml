@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.lsp4e.languageServer">
+      <server
+            class="com.redhat.eclipseide.jdtlsclient.InProcessJDTLSConnectionProvider"
+            clientImpl="com.redhat.eclipseide.jdtlsclient.JDTLSLanguageClient"
+            id="com.redhat.eclipseide.jdtlsclient.inProcessServer"
+            label="JDT-LS (in process)"
+            singleton="true"/>
+      <server
+            class="com.redhat.eclipseide.jdtlsclient.JDTLSProductConnectionProvider"
+            id="com.redhat.eclipseide.jdtlsclient.extenalServer"
+            label="JDT-LS (extenal)"
+            singleton="true"/>
+      <contentTypeMapping
+            contentType="org.eclipse.jdt.core.javaSource"
+            id="com.redhat.eclipseide.jdtlsclient.extenalServer">
+      </contentTypeMapping>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editorContentTypeBinding
+            contentTypeId="org.eclipse.jdt.core.javaSource"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
+   </extension>
+   <extension
+         point="org.eclipse.tm4e.registry.grammars">
+      <grammar
+            path="grammars/java.tmLanguage.json"
+            scopeName="source.java">
+      </grammar>
+      <scopeNameContentTypeBinding
+            contentTypeId="org.eclipse.jdt.core.javaSource"
+            scopeName="source.java">
+      </scopeNameContentTypeBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.genericeditor.presentationReconcilers">
+      <presentationReconciler
+            class="org.eclipse.tm4e.ui.text.TMPresentationReconciler"
+            contentType="org.eclipse.jdt.core.javaSource">
+      </presentationReconciler>
+   </extension>
+   <extension
+         point="org.eclipse.tm4e.languageconfiguration.languageConfigurations">
+      <languageConfiguration
+            contentTypeId="org.eclipse.jdt.core.javaSource"
+            path="grammars/java.languageConfiguration.json">
+      </languageConfiguration>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.redhat.eclipseide.jdtlsclient.JDTLSPrefrencesPage"
+            id="com.redhat.eclipseide.jdtlsclient"
+            name="JDT Language Server">
+      </page>
+   </extension>
+</plugin>

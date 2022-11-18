@@ -2,9 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.eclipse.jdt.ls.client</groupId>
+	<groupId>com.redhat.eclipseide.jdtlsclient</groupId>
 	<artifactId>parent</artifactId>
-	<name>${base.name} :: Parent</name>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<properties>
@@ -13,9 +12,9 @@
 		<tycho-extras-version>${tycho-version}</tycho-extras-version>
 	</properties>
 	<modules>
-		<module>org.eclipse.jdt.ls.client.target</module>
-		<module>org.eclipse.jdt.ls.client</module>
-		<module>org.eclipse.jdt.ls.client.test</module>
+		<module>target-platform</module>
+		<module>com.redhat.eclipseide.jdtlsclient</module>
+		<module>com.redhat.eclipseide.jdtlsclient.test</module>
 		<module>repository</module>
 	</modules>
 	<build>
@@ -29,10 +28,9 @@
 						<resolver>p2</resolver>
 						<target>
 							<artifact>
-								<groupId>org.eclipse.jdt.ls.client</groupId>
-								<artifactId>org.eclipse.jdt.ls.client.target</artifactId>
+								<groupId>com.redhat.eclipseide.jdtlsclient</groupId>
+								<artifactId>target-platform</artifactId>
 								<version>${project.version}</version>
-                                <classifier>jdt-ls-client</classifier>
 							</artifact>
 						</target>
 						<environments>

@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Java edition support using JDT Language Server Client
+Bundle-SymbolicName: com.redhat.eclipseide.jdtlsclient;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Export-Package: com.redhat.eclipseide.jdtlsclient;x-friends:="com.redhat.eclipseide.jdtlsclient.test"
+Bundle-Vendor: Eclipse JDT
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: com.redhat.eclipseide.jdtlsclient.JDTLSClientPlugin
+Require-Bundle: org.eclipse.lsp4e;bundle-version="0.3.0",
+ org.eclipse.ui.genericeditor;bundle-version="1.0.0",
+ org.eclipse.ui,
+ org.eclipse.core.contenttype,
+ org.eclipse.tm4e.registry;bundle-version="0.1.0",
+ org.eclipse.tm4e.ui;bundle-version="0.1.0",
+ org.eclipse.core.runtime;bundle-version="3.13.0",
+ org.eclipse.tm4e.languageconfiguration;bundle-version="0.5.0",
+ org.eclipse.lsp4j;bundle-version="0.15.0",
+ org.eclipse.lsp4j.jsonrpc;bundle-version="0.15.0",
+ org.eclipse.core.net;bundle-version="1.4.0",
+ org.eclipse.jdt.core,
+ org.eclipse.osgi,
+ org.apache.commons.compress
+Automatic-Module-Name: com.redhat.eclipseide.jdtlsclient
