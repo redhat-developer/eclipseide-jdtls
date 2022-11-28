@@ -1,0 +1,4 @@
+[submodule "jdt-ls-fork"]
+	path = jdt-ls-fork
+	url = https://github.com/mickaelistria/eclipse.jdt.ls.git
+	branch = good

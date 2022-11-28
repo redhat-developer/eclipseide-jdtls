@@ -35,14 +35,11 @@ public class InProcessJDTLSConnectionProvider implements StreamConnectionProvide
 		PrintStream out = System.out;
 		PrintStream err = System.err;
 		// end workaround
-		// Blocker: https://github.com/eclipse/eclipse.jdt.ls/issues/2312
-		// Blocker: https://github.com/eclipse/eclipse.jdt.ls/issues/2311
-		// Blocker: https://github.com/eclipse/eclipse.jdt.ls/issues/2309
+		JavaLanguageServerPlugin.runInEclipseWorkbench = true;
 		// Major: https://github.com/eclipse/eclipse.jdt.ls/issues/2310
-		// see https://github.com/eclipse/eclipse.jdt.ls/issues/2309
+		// Blocker: https://github.com/eclipse/eclipse.jdt.ls/issues/2309
 		System.setProperty("GENERATES_METADATA_FILES_AT_PROJECT_ROOT", Boolean.TRUE.toString());
-		// see https://github.com/eclipse/eclipse.jdt.ls/issues/2312
-		System.setProperty(/*BaseDocumentLifeCycleHandler.SKIP_CHANGE_UPDATE*/BaseDocumentLifeCycleHandler.class.getName() + ".SKIP_CHANGE_UPDATE", Boolean.TRUE.toString());
+		// Blocker: https://github.com/eclipse/eclipse.jdt.ls/issues/2312
 		Pipe serverOutputToClientInput = Pipe.open();
 		Pipe clientOutputToServerInput = Pipe.open();
 		errorStream = new ByteArrayInputStream("Error output on console".getBytes(StandardCharsets.UTF_8));

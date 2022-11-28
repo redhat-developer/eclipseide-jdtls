@@ -16,7 +16,7 @@
             singleton="true"/>
       <contentTypeMapping
             contentType="org.eclipse.jdt.core.javaSource"
-            id="com.redhat.eclipseide.jdtlsclient.extenalServer">
+            id="com.redhat.eclipseide.jdtlsclient.inProcessServer">
       </contentTypeMapping>
    </extension>
    <extension

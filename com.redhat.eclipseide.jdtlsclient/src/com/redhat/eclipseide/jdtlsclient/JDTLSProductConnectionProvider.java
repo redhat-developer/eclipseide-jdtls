@@ -134,4 +134,26 @@ public class JDTLSProductConnectionProvider extends ProcessStreamConnectionProvi
 		return "JDT-LS: " + super.toString();
 	}
 
+//	public void downloadJDTLS() {
+//		IPath installation = Platform.getStateLocation(JDTLSClientPlugin.getInstance().getBundle()).append("jdt-language-server-latest");
+//		
+//		try (InputStream download = new URL("https://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz").openStream();
+//			TarArchiveInputStream tarStream = new TarArchiveInputStream(new GzipCompressorInputStream(new BufferedInputStream(download)))) {
+//			TarArchiveEntry entry = null;
+//			while ((entry = tarStream.getNextTarEntry()) != null) {
+//				File file = installation.append(entry.getName()).toFile();
+//				File directory = entry.isDirectory() ? file : file.getParentFile();
+//				if (!directory.isDirectory() && !directory.mkdirs()) {
+//					throw new IOException("failed to create directory " + file);
+//				}
+//				if (entry.isFile()) {
+//					Files.copy(tarStream, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+//				}
+//			}
+//			JDTLSClientPlugin.getInstance().getPreferenceStore().setValue(JDTLSProductConnectionProvider.PREF_LOCATION, installation.toString());
+//		} catch (IOException e) {
+//			JDTLSClientPlugin.getInstance().getLog().log(new Status(IStatus.ERROR, JDTLSClientPlugin.getInstance().getBundle().getSymbolicName(), e.getMessage(), e));
+//		}
+//	}
+
 }

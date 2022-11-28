@@ -1,0 +1,7 @@
+# Workaround https://github.com/eclipse/eclipse.jdt.ls/issues/2429
+requires.0.namespace = org.eclipse.equinox.p2.iu
+requires.0.name = org.eclipse.m2e.feature.feature.group
+requires.1.namespace = org.eclipse.equinox.p2.iu
+requires.1.name = org.eclipse.buildship.feature.group
+requires.2.namespace = org.eclipse.equinox.p2.iu
+requires.2.name = org.eclipse.jdt.apt.pluggable.core
