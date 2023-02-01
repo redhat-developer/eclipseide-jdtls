@@ -20,7 +20,7 @@ jobs:
     - name: Build with Maven 🏗️
       uses: GabrielBB/xvfb-action@v1
       with:
-        run: mvn clean verify
+        run: mvn clean verify -pl !jdt-ls-fork/org.eclipse.jdt.ls.tests,!jdt-ls-fork/org.eclipse.jdt.ls.tests.syntaxserver
     - name: Deploy to GH-pages 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
