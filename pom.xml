@@ -10,6 +10,7 @@
 		<base.name>JDT LS Language Server Client</base.name>
 		<tycho-version>3.0.1</tycho-version>
 		<tycho-extras-version>${tycho-version}</tycho-extras-version>
+		<skipTests>true</skipTests> <!-- To skip jdt-ls tests from the Git submodule -->
 	</properties>
 	<modules>
 		<module>target-platform</module>
