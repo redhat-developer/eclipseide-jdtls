@@ -7,12 +7,19 @@
 		<unit id="org.eclipse.tm4e.feature.feature.group" version="0.0.0"/>
 		<!-- Actually required by JDT-LS, but marked as optional,
 		# Workaround https://github.com/eclipse/eclipse.jdt.ls/issues/2429 -->
-		<unit id="org.eclipse.m2e.feature.feature.group" version="0.0.0"/>
 		<unit id="org.eclipse.buildship.feature.group" version="0.0.0"/>
 		<!-- Explicit version to have different versions of LSP4J -->
 		<unit id="org.eclipse.lsp4j" version="0.19.0.v20221118-0359"/>
 		<unit id="org.apache.commons.compress" version="1.21.0.v20211103-2100"/>
 		<repository location="http://download.eclipse.org/releases/2022-12/"/>
+	</location>
+	<!-- Actually required by JDT-LS, but marked as optional,
+	# Workaround https://github.com/eclipse/eclipse.jdt.ls/issues/2429 -->
+	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<unit id="org.eclipse.m2e.feature.feature.group" version="0.0.0"/>
+		<unit id="org.eclipse.m2e.logback.feature.feature.group" version="0.0.0"/>
+		<unit id="ch.qos.logback.classic" version="0.0.0"/>
+		<repository location="https://download.eclipse.org/technology/m2e/snapshots/latest/"/>
 	</location>
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="org.eclipse.ui.tests.harness" version="0.0.0"/>
@@ -28,7 +35,7 @@
 		<unit id="org.eclipse.jdt.core.manipulation" version="0.0.0"/>
 		<!-- For local testing in IDE -->
 		<unit id="org.eclipse.jdt.feature.group" version="0.0.0"/>
-		<repository location="https://download.eclipse.org/eclipse/updates/4.26"/>
+		<repository location="https://download.eclipse.org/eclipse/updates/4.27-I-builds/"/>
 	</location>
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="org.eclipse.jdt.ls.core" version="0.0.0"/>
@@ -37,7 +44,6 @@
 	<!-- Next are workarounds for JDT-LS repo not embedding deps and not setting proper ranges -->
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="org.eclipse.lsp4j" version="0.0.0"/>
-		<unit id="org.eclipse.lsp4j.generator" version="0.0.0"/>
 		<unit id="org.eclipse.lsp4j.jsonrpc" version="0.0.0"/>
 		<repository location="https://download.eclipse.org/lsp4j/updates/releases/0.19.0/"/>
 	</location>

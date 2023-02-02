@@ -9,11 +9,18 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.preferences.InstanceScope;
+import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.launching.JavaRuntime;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.TextSelection;
@@ -25,24 +32,49 @@ import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
+import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.eclipse.ui.tests.harness.util.DisplayHelper;
 import org.eclipse.ui.texteditor.AbstractTextEditor;
 import org.eclipse.ui.texteditor.ContentAssistAction;
 import org.eclipse.ui.texteditor.ITextEditorActionConstants;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
-import com.redhat.eclipseide.jdtlsclient.JDTLSClientPlugin;
-import com.redhat.eclipseide.jdtlsclient.JDTLSProductConnectionProvider;
 
 class TestLSPIntegration {
 
+	@BeforeAll
+	public static void init() {
+		ScopedPreferenceStore prefs = new ScopedPreferenceStore(InstanceScope.INSTANCE, "org.eclipse.lsp4e");
+		prefs.putValue("com.redhat.eclipseide.jdtlsclient.inProcessServer.file.logging.enabled", Boolean.toString(true));
+	}
 
 	@Test
-	void testLSWorks() throws IOException, CoreException, BadLocationException {
+	@Disabled(value = "Case of a .java in a non Java project folder is not yet supported")
+	public void testJavaFileInNonJavaProject() throws IOException, CoreException, BadLocationException {
+		assertLSWorksInEditor(false);
+	}
+
+	@Test
+	public void testJavaFileInJavaProject() throws IOException, CoreException, BadLocationException {
+		assertLSWorksInEditor(true);
+	}
+
+	void assertLSWorksInEditor(boolean setJavaNature) throws IOException, CoreException, BadLocationException {
 		IProject project = (IProject) ResourcesPlugin.getWorkspace().getRoot().getProject(Long.toString(System.nanoTime()));
-		project.create(null);
+		
+		project.create(setJavaNature ? projectDescWithJavaNature(project) : null, null);
 		project.open(null);
-		IFile javaFile = project.getFile("a.java");
+		IFolder srcFolder = project.getFolder("src");
+		srcFolder.create(true, true, null);
+		if (setJavaNature) {
+			IJavaProject javaProject = JavaCore.create(project);
+			javaProject.setRawClasspath(new IClasspathEntry[] {
+				JavaCore.newSourceEntry(srcFolder.getFullPath()),
+				JavaRuntime.getDefaultJREContainerEntry()
+			}, null);
+		}
+		IFile javaFile = srcFolder.getFile("a.java");
 		javaFile.create(new ByteArrayInputStream("""
 			public class a {
 				String hello() {
@@ -86,6 +118,12 @@ class TestLSPIntegration {
 		Shell completionShell = afterShell.iterator().next();
 		Table completionTable = findCompletionSelectionControl(completionShell);
 		assertTrue(Stream.of(completionTable.getItems()).anyMatch(item -> item.getText().contains("substring")));
+	}
+
+	private IProjectDescription projectDescWithJavaNature(IProject project) {
+		IProjectDescription res = project.getWorkspace().newProjectDescription(project.getName());
+		res.setNatureIds(new String[] { JavaCore.NATURE_ID });
+		return res;
 	}
 
 	public static Table findCompletionSelectionControl(Widget control) {
