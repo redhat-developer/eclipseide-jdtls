@@ -60,4 +60,25 @@
             name="JDT Language Server">
       </page>
    </extension>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <commonFilter
+            activeByDefault="true"
+            class="com.redhat.eclipseide.jdtlsclient.FilterJDTLSProjectInNavigator"
+            id="com.redhat.eclipseide.jdtlsclient.filter.jdtlsproject"
+            name="JDT-LS internal project"
+            visibleInUI="true">
+      </commonFilter>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerContentBinding
+            viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension
+                  pattern="com.redhat.eclipseide.jdtlsclient.filter.jdtlsproject">
+            </contentExtension>
+         </includes>
+      </viewerContentBinding>
+   </extension>
 </plugin>
