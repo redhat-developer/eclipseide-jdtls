@@ -1,16 +1,7 @@
-/*******************************************************************************
- * Copyright (c) 2019, 2021 Red Hat Inc. and others.
- *
- * This program and the accompanying materials are made
- * available under the terms of the Eclipse Public License 2.0
- * which is available at https://www.eclipse.org/legal/epl-2.0/
- *
- * SPDX-License-Identifier: EPL-2.0
- *
- * Contributors:
- *   Xi Yan (Red Hat Inc.) - initial implementation
- *   Andrew Obuchowicz (Red Hat Inc.) - Add support for XML LS extension jars
- *******************************************************************************/
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 package com.redhat.eclipseide.jdtlsclient;
 
 import java.io.File;
