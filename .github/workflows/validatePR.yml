@@ -15,7 +15,11 @@ jobs:
       with:
         java-version: 17
         distribution: 'temurin'
+    - name: Set up Display 📺
+      run: |
+        sudo apt-get install mutter dbus-x11;
+        dbus-launch --auto-syntax > dbus-env;
+        source dbus-env;
+        mutter --no-x11 --headless --virtual-monitor 1920x1080 &
     - name: Build with Maven 🏗️
-      uses: GabrielBB/xvfb-action@v1
-      with:
-        run: mvn clean verify
+      run: mvn clean verify
