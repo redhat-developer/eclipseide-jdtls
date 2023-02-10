@@ -111,6 +111,10 @@ public class InProcessJDTLSConnectionProvider implements StreamConnectionProvide
 		return Map.of("settings", Map.of( //
 						"java", Map.of( //
 							"project", Map.of( //
-								"resourceFilters", ""))));
+								"resourceFilters", ""), //
+							"implementationsCodeLens", Map.of( //
+								"enabled", "false"), //
+							"referencesCodeLens", Map.of( //
+								"enabled", false))));
 	}
 }
