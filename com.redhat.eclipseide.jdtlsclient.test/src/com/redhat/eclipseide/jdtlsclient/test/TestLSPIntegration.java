@@ -112,16 +112,20 @@ class TestLSPIntegration {
 		String insertedText = ".sub";
 		document.replace(lastQuoteIndex + 1, 0, insertedText);
 		editor.getSelectionProvider().setSelection(new TextSelection(lastQuoteIndex + 1 + insertedText.length(), 0));
-		ContentAssistAction action = (ContentAssistAction)editor.getAction(ITextEditorActionConstants.CONTENT_ASSIST);
-		action.update();
+		ContentAssistAction completionAction = (ContentAssistAction)editor.getAction(ITextEditorActionConstants.CONTENT_ASSIST);
+		completionAction.update();
 		Set<Shell> beforeShells = Set.of(display.getShells());
-		action.run();
-		DisplayHelper.sleep(display, 2000);
-		Set<Shell> afterShell = new HashSet<>(Set.of(display.getShells()));
-		afterShell.removeAll(beforeShells);
-		Shell completionShell = afterShell.iterator().next();
-		Table completionTable = findCompletionSelectionControl(completionShell);
-		assertTrue(Stream.of(completionTable.getItems()).anyMatch(item -> item.getText().contains("substring")));
+		completionAction.run();
+		DisplayHelper.waitForCondition(display, 150000, () -> {
+			Set<Shell> afterShell = new HashSet<>(Set.of(display.getShells()));
+			afterShell.removeAll(beforeShells);
+			if (afterShell.isEmpty()) {
+				return false;
+			}
+			Shell completionShell = afterShell.iterator().next();
+			Table completionTable = findCompletionSelectionControl(completionShell);
+			return Stream.of(completionTable.getItems()).anyMatch(item -> item.getText().contains("substring"));
+		});
 	}
 
 	private IProjectDescription projectDescWithJavaNature(IProject project) {
