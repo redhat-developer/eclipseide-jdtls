@@ -10,16 +10,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.net.URI;
 import java.nio.channels.Channels;
 import java.nio.channels.Pipe;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Map;
 import java.util.concurrent.Future;
 
 import org.eclipse.jdt.ls.core.internal.JavaClientConnection.JavaLanguageClient;
 import org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin;
-import org.eclipse.jdt.ls.core.internal.handlers.BaseDocumentLifeCycleHandler;
 import org.eclipse.jdt.ls.core.internal.handlers.JDTLanguageServer;
 import org.eclipse.lsp4e.server.StreamConnectionProvider;
 import org.eclipse.lsp4j.jsonrpc.Launcher;
@@ -105,4 +106,11 @@ public class InProcessJDTLSConnectionProvider implements StreamConnectionProvide
 		listener = null;
 	}
 
+	@Override
+	public Object getInitializationOptions(URI rootUri) {
+		return Map.of("settings", Map.of( //
+						"java", Map.of( //
+							"project", Map.of( //
+								"resourceFilters", ""))));
+	}
 }
