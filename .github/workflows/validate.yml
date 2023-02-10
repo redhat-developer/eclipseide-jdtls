@@ -2,6 +2,9 @@ on:
   pull_request:
     branches:
       - master
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -9,6 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
+        submodules: recursive
         fetch-depth: 0
     - name: Set up JDK 17 ☕
       uses: actions/setup-java@v3
@@ -22,4 +26,4 @@ jobs:
         source dbus-env;
         mutter --no-x11 --headless --virtual-monitor 1920x1080 &
     - name: Build with Maven 🏗️
-      run: mvn clean verify
+      run: mvn -B clean verify -pl !jdt-ls-fork/org.eclipse.jdt.ls.tests,!jdt-ls-fork/org.eclipse.jdt.ls.tests.syntaxserver
