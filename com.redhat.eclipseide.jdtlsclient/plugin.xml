@@ -81,4 +81,13 @@
          </includes>
       </viewerContentBinding>
    </extension>
+   <extension
+         point="org.eclipse.core.filesystem.filesystems">
+      <filesystem
+            scheme="jdt">
+         <run
+               class="com.redhat.eclipseide.jdtlsclient.JDTFileSystem">
+         </run>
+      </filesystem>
+   </extension>
 </plugin>
