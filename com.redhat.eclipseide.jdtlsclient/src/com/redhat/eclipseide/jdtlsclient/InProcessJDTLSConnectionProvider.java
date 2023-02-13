@@ -108,13 +108,16 @@ public class InProcessJDTLSConnectionProvider implements StreamConnectionProvide
 
 	@Override
 	public Object getInitializationOptions(URI rootUri) {
-		return Map.of("settings", Map.of( //
+		return Map.of(
+					"settings", Map.of( //
 						"java", Map.of( //
 							"project", Map.of( //
 								"resourceFilters", ""), //
 							"implementationsCodeLens", Map.of( //
-								"enabled", "false"), //
+								"enabled", false), //
 							"referencesCodeLens", Map.of( //
-								"enabled", false))));
+								"enabled", false))),
+					"extendedClientCapabilities", Map.of(
+						"classFileContentsSupport", true));
 	}
 }
