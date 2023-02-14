@@ -16,20 +16,18 @@ import org.eclipse.core.filesystem.provider.FileStore;
 import org.eclipse.core.filesystem.provider.FileSystem;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jdt.core.IClassFile;
+import org.eclipse.jdt.ls.core.internal.JDTUtils;
+import org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin;
 
 public class JDTFileSystem extends FileSystem {
 
 	@Override
 	public IFileStore getStore(URI uri) {
+		String content = JavaLanguageServerPlugin.getContentProviderManager().getContent(uri, new NullProgressMonitor());
 		return new FileStore() {
 
-			String content = """
-					/** lololol */
-					public class lol {
-						String s = null;
-					}
-					""";
-			
 			@Override
 			public URI toURI() {
 				return uri;
