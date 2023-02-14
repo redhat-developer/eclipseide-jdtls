@@ -19,11 +19,20 @@
             id="com.redhat.eclipseide.jdtlsclient.inProcessServer"
             languageId="java">
       </contentTypeMapping>
+      <contentTypeMapping
+            contentType="com.redhat.eclipseide.jdtlsclient.classWithSource"
+            id="com.redhat.eclipseide.jdtlsclient.inProcessServer"
+            languageId="java">
+      </contentTypeMapping>
    </extension>
    <extension
          point="org.eclipse.ui.editors">
       <editorContentTypeBinding
             contentTypeId="org.eclipse.jdt.core.javaSource"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
+      <editorContentTypeBinding
+            contentTypeId="com.redhat.eclipseide.jdtlsclient.classWithSource"
             editorId="org.eclipse.ui.genericeditor.GenericEditor">
       </editorContentTypeBinding>
    </extension>
@@ -37,12 +46,20 @@
             contentTypeId="org.eclipse.jdt.core.javaSource"
             scopeName="source.java">
       </scopeNameContentTypeBinding>
+      <scopeNameContentTypeBinding
+            contentTypeId="com.redhat.eclipseide.jdtlsclient.classWithSource"
+            scopeName="source.java">
+      </scopeNameContentTypeBinding>
    </extension>
    <extension
          point="org.eclipse.ui.genericeditor.presentationReconcilers">
       <presentationReconciler
             class="org.eclipse.tm4e.ui.text.TMPresentationReconciler"
             contentType="org.eclipse.jdt.core.javaSource">
+      </presentationReconciler>
+      <presentationReconciler
+            class="org.eclipse.tm4e.ui.text.TMPresentationReconciler"
+            contentType="com.redhat.eclipseide.jdtlsclient.classWithSource">
       </presentationReconciler>
    </extension>
    <extension
@@ -89,5 +106,14 @@
                class="com.redhat.eclipseide.jdtlsclient.JDTFileSystem">
          </run>
       </filesystem>
+   </extension>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            file-extensions="class"
+            id="com.redhat.eclipseide.jdtlsclient.classWithSource"
+            name="Class (source)"
+            priority="normal">
+      </content-type>
    </extension>
 </plugin>
