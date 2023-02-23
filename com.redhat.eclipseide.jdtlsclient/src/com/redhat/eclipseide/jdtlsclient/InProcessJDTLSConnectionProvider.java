@@ -46,7 +46,6 @@ public class InProcessJDTLSConnectionProvider implements StreamConnectionProvide
 		PrintStream out = System.out;
 		PrintStream err = System.err;
 		// end workaround streams
-		JavaLanguageServerPlugin.runInEclipseWorkbench = true;
 		// Major: https://github.com/eclipse/eclipse.jdt.ls/issues/2310
 		// Blocker: https://github.com/eclipse/eclipse.jdt.ls/issues/2309
 		System.setProperty("GENERATES_METADATA_FILES_AT_PROJECT_ROOT", Boolean.TRUE.toString());
