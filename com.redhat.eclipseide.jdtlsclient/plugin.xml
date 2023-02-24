@@ -116,4 +116,15 @@
             priority="normal">
       </content-type>
    </extension>
+   <extension
+         point="org.eclipse.ui.genericeditor.icons">
+      <icon
+            contentType="org.eclipse.jdt.core.javaSource"
+            icon="icons/javaSourceEditorIcon.png">
+      </icon>
+      <icon
+            contentType="com.redhat.eclipseide.jdtlsclient.classWithSource"
+            icon="icons/javaClassEditorIcon.png">
+      </icon>
+   </extension>
 </plugin>
