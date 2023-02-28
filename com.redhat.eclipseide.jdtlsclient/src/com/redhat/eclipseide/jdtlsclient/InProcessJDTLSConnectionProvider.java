@@ -49,6 +49,7 @@ public class InProcessJDTLSConnectionProvider implements StreamConnectionProvide
 		// Major: https://github.com/eclipse/eclipse.jdt.ls/issues/2310
 		// Blocker: https://github.com/eclipse/eclipse.jdt.ls/issues/2309
 		System.setProperty("GENERATES_METADATA_FILES_AT_PROJECT_ROOT", Boolean.TRUE.toString());
+		System.setProperty("watchParentProcess", Boolean.toString(false));
 		// Blocker: https://github.com/eclipse/eclipse.jdt.ls/issues/2312
 		Pipe serverOutputToClientInput = Pipe.open();
 		Pipe clientOutputToServerInput = Pipe.open();
