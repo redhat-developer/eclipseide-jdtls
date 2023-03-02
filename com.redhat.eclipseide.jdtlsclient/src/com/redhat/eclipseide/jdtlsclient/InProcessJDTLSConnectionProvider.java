@@ -9,7 +9,6 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.PrintStream;
 import java.net.URI;
 import java.nio.channels.Channels;
 import java.nio.channels.Pipe;
@@ -20,10 +19,6 @@ import java.util.Map;
 import java.util.concurrent.Future;
 
 import org.eclipse.jdt.ls.core.internal.JavaClientConnection.JavaLanguageClient;
-import org.eclipse.core.resources.IWorkspaceDescription;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin;
 import org.eclipse.jdt.ls.core.internal.handlers.JDTLanguageServer;
 import org.eclipse.lsp4e.server.StreamConnectionProvider;
@@ -39,13 +34,6 @@ public class InProcessJDTLSConnectionProvider implements StreamConnectionProvide
 
 	@Override
 	public void start() throws IOException {
-		// JDT-LS disables auto-build by default
-		IWorkspaceDescription initialDescription = ResourcesPlugin.getWorkspace().getDescription();
-		// Workaround: too much log; JDT-LS forces streams (part 1)
-		InputStream in = System.in;
-		PrintStream out = System.out;
-		PrintStream err = System.err;
-		// end workaround streams
 		// Major: https://github.com/eclipse/eclipse.jdt.ls/issues/2310
 		// Blocker: https://github.com/eclipse/eclipse.jdt.ls/issues/2309
 		System.setProperty("GENERATES_METADATA_FILES_AT_PROJECT_ROOT", Boolean.TRUE.toString());
@@ -58,12 +46,6 @@ public class InProcessJDTLSConnectionProvider implements StreamConnectionProvide
 		InputStream serverInputStream = Channels.newInputStream(clientOutputToServerInput.source());
 		OutputStream serverOutputStream = Channels.newOutputStream(serverOutputToClientInput.sink());
 		JDTLanguageServer server = new org.eclipse.jdt.ls.core.internal.handlers.JDTLanguageServer(JavaLanguageServerPlugin.getProjectsManager(), JavaLanguageServerPlugin.getPreferencesManager());
-		// Workaround: too much log; JDT-LS forces streams (part 2)
-		// restore initial streams
-		System.setIn(in);
-		System.setOut(out);
-		System.setErr(err);
-		// end workaround
 		JavaLanguageServerPlugin.getInstance().setProtocol(server);
 		Launcher<JavaLanguageClient> launcher = null;
 		try {
@@ -76,11 +58,6 @@ public class InProcessJDTLSConnectionProvider implements StreamConnectionProvide
 		listener = launcher.startListening();
 		server.connectClient((JavaLanguageClient)launcher.getRemoteProxy());
 		
-		try {
-			ResourcesPlugin.getWorkspace().setDescription(initialDescription);
-		} catch (CoreException e) {
-			JDTLSClientPlugin.getInstance().getLog().log(Status.error(e.getMessage(), e));
-		}
 		// Store the output streams so we can close them to clean up. The corresponding input
 		// streams should automatically receive an EOF and close.
 		streams.add(clientOutputStream);
