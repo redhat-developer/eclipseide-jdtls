@@ -11,6 +11,7 @@
             singleton="true"/>
       <server
             class="com.redhat.eclipseide.jdtlsclient.JDTLSProductConnectionProvider"
+            clientImpl="JDTLSLanguageClientImpl"
             id="com.redhat.eclipseide.jdtlsclient.extenalServer"
             label="JDT-LS (extenal)"
             singleton="true"/>
@@ -66,7 +67,7 @@
          point="org.eclipse.tm4e.languageconfiguration.languageConfigurations">
       <languageConfiguration
             contentTypeId="org.eclipse.jdt.core.javaSource"
-            path="grammars/java.languageConfiguration.json">
+            path="grammars/java.languageConfiguration.jsonc">
       </languageConfiguration>
    </extension>
    <extension
