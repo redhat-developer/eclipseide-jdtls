@@ -21,6 +21,7 @@ import java.util.concurrent.Future;
 import org.eclipse.jdt.ls.core.internal.JavaClientConnection.JavaLanguageClient;
 import org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin;
 import org.eclipse.jdt.ls.core.internal.handlers.JDTLanguageServer;
+import org.eclipse.jdt.ls.core.internal.handlers.LogHandler;
 import org.eclipse.lsp4e.server.StreamConnectionProvider;
 import org.eclipse.lsp4j.jsonrpc.Launcher;
 
@@ -45,6 +46,7 @@ public class InProcessJDTLSConnectionProvider implements StreamConnectionProvide
 
 		InputStream serverInputStream = Channels.newInputStream(clientOutputToServerInput.source());
 		OutputStream serverOutputStream = Channels.newOutputStream(serverOutputToClientInput.sink());
+		LogHandler.defaultLogFilter = status -> false; // do not forward Eclipse logs to LSP logs
 		JDTLanguageServer server = new org.eclipse.jdt.ls.core.internal.handlers.JDTLanguageServer(JavaLanguageServerPlugin.getProjectsManager(), JavaLanguageServerPlugin.getPreferencesManager());
 		JavaLanguageServerPlugin.getInstance().setProtocol(server);
 		Launcher<JavaLanguageClient> launcher = null;
