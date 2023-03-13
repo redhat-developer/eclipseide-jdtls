@@ -18,7 +18,7 @@ However, anyone is encouraged to try it (and to contribute): it's easy to instal
 
 Use this Eclipse Marketplace entry in your IDE https://marketplace.eclipse.org/content/jdt-language-server-client-eclipse-ide , fastest way is to click  → [![Eclipse Maven integration Marketplace entry](https://img.shields.io/static/v1?logo=eclipseide&label=Marketplace&message=Install%20Eclipse%20m2e&style=for-the-badge&logoColor=white&labelColor=darkorange&color=grey)](https://mickaelistria.github.io/redirctToEclipseIDECloneCommand/redirectToMarketplace.html?entryId=5578650 "Install with Marketplace client")
 
-You can install it in your Eclipse IDE or Eclipse RCP applicaiton using *Help > Install New Software* and pointing to https://mickaelistria.github.io/eclipse.jdt.ls.client and installing the only installable item.
+You can install it in your Eclipse IDE or Eclipse RCP applicaiton using *Help > Install New Software* and pointing to https://mickaelistria.github.io/eclipseide-jdtls and installing the only installable item.
 
 ## 🏗️ Building
 
