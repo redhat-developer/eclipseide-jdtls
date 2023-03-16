@@ -15,6 +15,7 @@ import java.nio.channels.Pipe;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Future;
 
@@ -108,6 +109,7 @@ public class InProcessJDTLSConnectionProvider implements StreamConnectionProvide
 							"referencesCodeLens", Map.of( //
 								"enabled", false))),
 					"extendedClientCapabilities", Map.of(
-						"classFileContentsSupport", true));
+						"classFileContentsSupport", true, //
+						"excludedMarkerTypes", List.of("org.eclipse.lsp4e.diagnostic")));
 	}
 }
