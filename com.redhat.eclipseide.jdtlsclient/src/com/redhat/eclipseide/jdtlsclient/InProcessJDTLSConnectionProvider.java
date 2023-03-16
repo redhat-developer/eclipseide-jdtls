@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Future;
 
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.jdt.ls.core.internal.JavaClientConnection.JavaLanguageClient;
 import org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin;
 import org.eclipse.jdt.ls.core.internal.handlers.JDTLanguageServer;
@@ -110,6 +111,8 @@ public class InProcessJDTLSConnectionProvider implements StreamConnectionProvide
 								"enabled", false))),
 					"extendedClientCapabilities", Map.of(
 						"classFileContentsSupport", true, //
-						"excludedMarkerTypes", List.of("org.eclipse.lsp4e.diagnostic")));
+						// excluding all problems is more a quick-fix. We may want
+						// to only exclude some problems, not all of them.
+						"excludedMarkerTypes", List.of(IMarker.PROBLEM)));
 	}
 }
