@@ -111,6 +111,10 @@ public class InProcessJDTLSConnectionProvider implements StreamConnectionProvide
 								"enabled", false))),
 					"extendedClientCapabilities", Map.of(
 						"classFileContentsSupport", true, //
+						// We want JDT-LS to keep the IDocument intact on change, as they're
+						// driven by the user and visible in UI, so no need to repeat changes
+						// there
+						"skipTextEventPropagation", true, //
 						// excluding all problems is more a quick-fix. We may want
 						// to only exclude some problems, not all of them.
 						"excludedMarkerTypes", List.of(IMarker.PROBLEM)));
