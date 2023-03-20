@@ -17,6 +17,7 @@
 		<module>jdt-ls-fork</module>
 		<module>com.redhat.eclipseide.jdtlsclient</module>
 		<module>com.redhat.eclipseide.jdtlsclient.test</module>
+		<module>com.redhat.eclipseide.jdtlsclient.feature</module>
 		<module>repository</module>
 	</modules>
 	<build>
