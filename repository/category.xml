@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <bundle id="com.redhat.eclipseide.jdtlsclient">
+   <feature id="com.redhat.eclipseide.jdtlsclient.feature">
       <category name="JDT-LS client in Eclipse IDE"/>
-   </bundle>
+   </feature>
    <bundle id="org.eclipse.jdt.ls.core">
       <category name="Dependencies"/>
    </bundle>
