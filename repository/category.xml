@@ -20,5 +20,6 @@
    </bundle>
    <category-def name="JDT-LS client in Eclipse IDE" label="JDT-LS client in Eclipse IDE"/>
    <category-def name="Dependencies" label="Dependencies"/>
-   <repository-reference location="https://download.eclipse.org/jdtls/snapshots/repository/latest/" enabled="true" />
+   <!-- Do not enable repo until we can use the master version -->
+   <!--repository-reference location="https://download.eclipse.org/jdtls/snapshots/repository/latest/" enabled="true" /-->
 </site>
