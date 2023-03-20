@@ -18,7 +18,7 @@ jobs:
         java-version: 17
         distribution: 'temurin'
     - name: Build with Maven 🏗️
-      run: mvn -B clean verify -pl !jdt-ls-fork/org.eclipse.jdt.ls.tests,!jdt-ls-fork/org.eclipse.jdt.ls.tests.syntaxserver -DskipTests
+      run: mvn -B clean verify -pl !jdt-ls-fork/org.eclipse.jdt.ls.tests,!jdt-ls-fork/org.eclipse.jdt.ls.tests.syntaxserver,!jdt-ls-fork/org.eclipse.jdt.ls.product -DskipTests
     - name: Deploy to GH-pages 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
