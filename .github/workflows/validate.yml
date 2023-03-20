@@ -26,4 +26,4 @@ jobs:
         source dbus-env;
         mutter --no-x11 --headless --virtual-monitor 1920x1080 &
     - name: Build with Maven 🏗️
-      run: mvn -B clean verify -pl !jdt-ls-fork/org.eclipse.jdt.ls.tests,!jdt-ls-fork/org.eclipse.jdt.ls.tests.syntaxserver
+      run: mvn -B clean verify -pl !jdt-ls-fork/org.eclipse.jdt.ls.tests,!jdt-ls-fork/org.eclipse.jdt.ls.tests.syntaxserver,!jdt-ls-fork/org.eclipse.jdt.ls.product
