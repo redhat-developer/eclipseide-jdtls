@@ -128,4 +128,12 @@
             icon="icons/javaClassEditorIcon.png">
       </icon>
    </extension>
+   <extension point="org.eclipse.core.runtime.adapters">
+          <factory
+            class="com.redhat.eclipseide.jdtlsclient.ToggleBreakpointAdapterFactory"
+            adaptableType="org.eclipse.ui.internal.genericeditor.ExtensionBasedTextEditor">
+            <!--adapter type="org.eclipse.debug.ui.actions.IRunToLineTarget"/-->
+            <adapter type="org.eclipse.debug.ui.actions.IToggleBreakpointsTarget"/>
+         </factory>
+   </extension>
 </plugin>
