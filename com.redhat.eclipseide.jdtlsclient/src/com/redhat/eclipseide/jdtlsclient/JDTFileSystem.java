@@ -17,8 +17,6 @@ import org.eclipse.core.filesystem.provider.FileSystem;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jdt.core.IClassFile;
-import org.eclipse.jdt.ls.core.internal.JDTUtils;
 import org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin;
 
 public class JDTFileSystem extends FileSystem {
