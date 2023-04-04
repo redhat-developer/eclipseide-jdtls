@@ -21,6 +21,7 @@ jobs:
         distribution: 'temurin'
     - name: Set up Display 📺
       run: |
+        sudo apt-get update --fix-missing;
         sudo apt-get install mutter dbus-x11;
         dbus-launch --auto-syntax > dbus-env;
         source dbus-env;
