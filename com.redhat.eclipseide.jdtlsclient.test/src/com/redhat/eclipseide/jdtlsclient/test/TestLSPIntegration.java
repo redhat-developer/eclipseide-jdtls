@@ -4,10 +4,12 @@
  *--------------------------------------------------------------------------------------------*/
 package com.redhat.eclipseide.jdtlsclient.test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -29,12 +31,11 @@ import org.eclipse.jdt.launching.JavaRuntime;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.TextSelection;
-import org.eclipse.swt.widgets.Composite;
+import org.eclipse.lsp4e.operations.completion.LSCompletionProposal;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.preferences.ScopedPreferenceStore;
@@ -43,6 +44,7 @@ import org.eclipse.ui.texteditor.AbstractTextEditor;
 import org.eclipse.ui.texteditor.ContentAssistAction;
 import org.eclipse.ui.texteditor.ITextEditorActionConstants;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -52,6 +54,17 @@ class TestLSPIntegration {
 	public static void init() {
 		ScopedPreferenceStore prefs = new ScopedPreferenceStore(InstanceScope.INSTANCE, "org.eclipse.lsp4e");
 		prefs.putValue("com.redhat.eclipseide.jdtlsclient.inProcessServer.file.logging.enabled", Boolean.toString(true));
+	}
+
+	@BeforeEach
+	public void clearWorkspace() throws CoreException {
+		Arrays.stream(PlatformUI.getWorkbench().getWorkbenchWindows())
+			.map(IWorkbenchWindow::getPages)
+			.flatMap(Arrays::stream)
+			.forEach(page -> page.closeAllEditors(false));
+		for (IProject project : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
+			project.delete(true, null);
+		}
 	}
 
 	@Test
@@ -121,7 +134,7 @@ class TestLSPIntegration {
 			Set<Shell> afterShell = new HashSet<>(Set.of(display.getShells()));
 			afterShell.removeAll(beforeShells);
 			return afterShell.stream() //
-				.map(TestLSPIntegration::findCompletionSelectionControl) //
+				.map(TestCompletion::findCompletionSelectionControl) //
 				.filter(Objects::nonNull) //
 				.flatMap(completionTable -> Stream.of(completionTable.getItems())) // 
 				.anyMatch(item -> item.getText().contains("substring"));
@@ -134,17 +147,4 @@ class TestLSPIntegration {
 		return res;
 	}
 
-	public static Table findCompletionSelectionControl(Widget control) {
-		if (control instanceof Table table) {
-			return table;
-		} else if (control instanceof Composite composite) {
-			for (Widget child : composite.getChildren()) {
-				Table res = findCompletionSelectionControl(child);
-				if (res != null) {
-					return res;
-				}
-			}
-		}
-		return null;
-	}
 }
