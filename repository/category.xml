@@ -9,7 +9,16 @@
    <bundle id="org.eclipse.jdt.ls.filesystem">
       <category name="Dependencies"/>
    </bundle>
+   <bundle id="org.eclipse.lsp4e">
+      <category name="Dependencies"/>
+   </bundle>
+   <bundle id="org.eclipse.lsp4e.debug">
+      <category name="Dependencies"/>
+   </bundle>
    <bundle id="org.eclipse.lsp4j">
+      <category name="Dependencies"/>
+   </bundle>
+   <bundle id="org.eclipse.lsp4j.debug">
       <category name="Dependencies"/>
    </bundle>
    <bundle id="org.eclipse.lsp4j.jsonrpc">
