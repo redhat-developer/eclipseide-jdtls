@@ -13,8 +13,6 @@
 	</properties>
 	<modules>
 		<module>target-platform</module>
-		<!-- workaround to include PRs 2417 and 2423 -->
-		<module>jdt-ls-fork</module>
 		<module>com.redhat.eclipseide.jdtlsclient</module>
 		<module>com.redhat.eclipseide.jdtlsclient.test</module>
 		<module>com.redhat.eclipseide.jdtlsclient.feature</module>

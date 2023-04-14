@@ -6,9 +6,6 @@
    <bundle id="org.eclipse.jdt.ls.core">
       <category name="Dependencies"/>
    </bundle>
-   <bundle id="org.eclipse.jdt.ls.filesystem">
-      <category name="Dependencies"/>
-   </bundle>
    <bundle id="org.eclipse.lsp4e">
       <category name="Dependencies"/>
    </bundle>
