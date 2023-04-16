@@ -20,6 +20,7 @@ jobs:
         java-version: 17
         distribution: 'temurin'
     - name: Set up Display 📺
+      if: ${{ runner.os == 'Linux' }}
       run: |
         sudo apt-get update --fix-missing;
         sudo apt-get install mutter dbus-x11;
