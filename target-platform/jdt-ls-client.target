@@ -34,6 +34,7 @@
 		<unit id="org.eclipse.jdt.core.manipulation" version="0.0.0"/>
 		<!-- For local testing in IDE -->
 		<unit id="org.eclipse.jdt.feature.group" version="0.0.0"/>
+		<unit id="org.mockito.mockito-core" version="0.0.0"/>
 		<!-- transitive dep of LSP4J -->
 		<unit id="com.google.gson" version="2.10.1"/>
 		<unit id="org.mockito.mockito-core" version="0.0.0"/>
