@@ -128,7 +128,7 @@ class TestLSPIntegration {
 		});
 	}
 
-	private IProjectDescription projectDescWithJavaNature(IProject project) {
+	static IProjectDescription projectDescWithJavaNature(IProject project) {
 		IProjectDescription res = project.getWorkspace().newProjectDescription(project.getName());
 		res.setNatureIds(new String[] { JavaCore.NATURE_ID });
 		return res;
