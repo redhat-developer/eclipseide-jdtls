@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -119,12 +120,11 @@ class TestLSPIntegration {
 		DisplayHelper.waitForCondition(display, 150000, () -> {
 			Set<Shell> afterShell = new HashSet<>(Set.of(display.getShells()));
 			afterShell.removeAll(beforeShells);
-			if (afterShell.isEmpty()) {
-				return false;
-			}
-			Shell completionShell = afterShell.iterator().next();
-			Table completionTable = findCompletionSelectionControl(completionShell);
-			return Stream.of(completionTable.getItems()).anyMatch(item -> item.getText().contains("substring"));
+			return afterShell.stream() //
+				.map(TestLSPIntegration::findCompletionSelectionControl) //
+				.filter(Objects::nonNull) //
+				.flatMap(completionTable -> Stream.of(completionTable.getItems())) // 
+				.anyMatch(item -> item.getText().contains("substring"));
 		});
 	}
 
