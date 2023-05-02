@@ -33,6 +33,10 @@ Require-Bundle: org.eclipse.lsp4e;bundle-version="0.3.0",
  org.eclipse.ui.workbench,
  org.eclipse.ui.ide,
  org.eclipse.jdt.debug,
- org.eclipse.lsp4e.debug;bundle-version="0.15.1"
+ org.eclipse.lsp4e.debug;bundle-version="0.15.1",
+ com.microsoft.java.debug.plugin,
+ org.eclipse.jdt.launching;bundle-version="3.20.0",
+ org.eclipse.core.filebuffers;bundle-version="3.8.0",
+ com.google.gson;bundle-version="2.10.1"
 Automatic-Module-Name: com.redhat.eclipseide.jdtlsclient
 Import-Package: org.eclipse.jface.text
