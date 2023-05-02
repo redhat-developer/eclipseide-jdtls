@@ -128,4 +128,18 @@
             icon="icons/javaClassEditorIcon.png">
       </icon>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="com.redhat.eclipseide.jdtlsclient.debugwithvscode"
+            name="Debug with VSCode Java Debug Adapter">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.redhat.eclipseide.jdtlsclient.debug.DebugWithJavaAdapterHandler"
+            commandId="com.redhat.eclipseide.jdtlsclient.debugwithvscode">
+      </handler>
+   </extension>
 </plugin>
