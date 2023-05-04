@@ -24,6 +24,9 @@
    <bundle id="com.google.gson">
       <category name="Dependencies"/>
    </bundle>
+   <bundle id="com.microsoft.java.debug.plugin">
+      <category name="Dependencies"/>
+   </bundle>
    <category-def name="JDT-LS client in Eclipse IDE" label="JDT-LS client in Eclipse IDE"/>
    <category-def name="Dependencies" label="Dependencies"/>
    <repository-reference location="https://download.eclipse.org/jdtls/snapshots/repository/latest/" enabled="true" />
