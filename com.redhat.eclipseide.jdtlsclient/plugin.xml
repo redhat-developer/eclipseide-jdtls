@@ -9,12 +9,6 @@
             id="com.redhat.eclipseide.jdtlsclient.inProcessServer"
             label="JDT-LS (in process)"
             singleton="true"/>
-      <server
-            class="com.redhat.eclipseide.jdtlsclient.JDTLSProductConnectionProvider"
-            clientImpl="JDTLSLanguageClientImpl"
-            id="com.redhat.eclipseide.jdtlsclient.extenalServer"
-            label="JDT-LS (extenal)"
-            singleton="true"/>
       <contentTypeMapping
             contentType="org.eclipse.jdt.core.javaSource"
             id="com.redhat.eclipseide.jdtlsclient.inProcessServer"
@@ -69,14 +63,6 @@
             contentTypeId="org.eclipse.jdt.core.javaSource"
             path="grammars/java.languageConfiguration.jsonc">
       </languageConfiguration>
-   </extension>
-   <extension
-         point="org.eclipse.ui.preferencePages">
-      <page
-            class="com.redhat.eclipseide.jdtlsclient.JDTLSPrefrencesPage"
-            id="com.redhat.eclipseide.jdtlsclient"
-            name="JDT Language Server">
-      </page>
    </extension>
    <extension
          point="org.eclipse.ui.navigator.navigatorContent">
