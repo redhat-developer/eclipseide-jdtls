@@ -114,8 +114,17 @@
             icon="icons/javaClassEditorIcon.png">
       </icon>
    </extension>
-   <extension
-         point="org.eclipse.ui.commands">
+   <extension point="org.eclipse.ui.commands">
+      <category
+            description="Commands supported by JDT Language Server"
+            id="com.redhat.eclipseide.jdtlsclient.commandCategory"
+            name="JDT-LS commands">
+      </category>
+      <command
+            categoryId="com.redhat.eclipseide.jdtlsclient.commandCategory"
+            id="com.redhat.eclipseide.jdtlsclient.java.edit.organizeImports"
+            name="Organize Imports">
+      </command>
       <command
             id="com.redhat.eclipseide.jdtlsclient.debugwithvscode"
             name="Debug with VSCode Java Debug Adapter">
@@ -125,7 +134,18 @@
          point="org.eclipse.ui.handlers">
       <handler
             class="com.redhat.eclipseide.jdtlsclient.debug.DebugWithJavaAdapterHandler"
-            commandId="com.redhat.eclipseide.jdtlsclient.debugwithvscode">
-      </handler>
+            commandId="com.redhat.eclipseide.jdtlsclient.debugwithvscode"/>
+      <handler
+            class="com.redhat.eclipseide.jdtlsclient.commands.OrganizeImportsHandler"
+            commandId="com.redhat.eclipseide.jdtlsclient.java.edit.organizeImports"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.redhat.eclipseide.jdtlsclient.java.edit.organizeImports"
+            contextId="org.eclipse.ui.genericeditor.genericEditorContext"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+M2+O">
+      </key>
    </extension>
 </plugin>
