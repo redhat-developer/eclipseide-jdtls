@@ -148,4 +148,28 @@
             sequence="M1+M2+O">
       </key>
    </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="true"
+            locationURI="popup:#TextEditorContext?after=additions">
+         <menu label="Debug Actions">
+            <command
+                  commandId="org.eclipse.debug.ui.commands.ToggleLineBreakpoint"
+                  style="push"/>
+            <command
+               commandId="org.eclipse.debug.ui.commands.RunToLine"
+               style="push"/>
+            <command
+               commandId="org.eclipse.jdt.debug.ui.commands.Inspect"
+               style="push"/>
+            <command
+                  commandId="org.eclipse.jdt.debug.ui.commands.Execute"
+                  style="push"/>
+            <command
+                  commandId="org.eclipse.debug.ui.actions.WatchCommand"
+                  style="push"/>
+         </menu>
+      </menuContribution>
+   </extension>
 </plugin>
