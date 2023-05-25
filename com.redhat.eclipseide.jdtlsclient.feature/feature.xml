@@ -44,12 +44,4 @@ SOFTWARE.
          version="0.0.0"
          unpack="false"/>
 
-   <!-- explicited here to force usage of LSP4E snapshots -->
-   <plugin
-         id="org.eclipse.lsp4e"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
 </feature>

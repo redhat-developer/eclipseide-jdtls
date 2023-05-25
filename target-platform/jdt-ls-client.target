@@ -18,7 +18,7 @@
 		<unit id="org.eclipse.m2e.feature.feature.group" version="0.0.0"/>
 		<unit id="org.eclipse.m2e.logback.feature.feature.group" version="0.0.0"/>
 		<unit id="ch.qos.logback.classic" version="0.0.0"/>
-		<repository location="https://download.eclipse.org/technology/m2e/snapshots/latest/"/>
+		<repository location="https://download.eclipse.org/technology/m2e/releases/latest/"/>
 	</location>
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="org.eclipse.ui.tests.harness" version="0.0.0"/>
@@ -53,7 +53,7 @@
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="org.eclipse.lsp4e" version="0.0.0"/>
 		<unit id="org.eclipse.lsp4e.debug" version="0.0.0"/>
-		<repository location="https://download.eclipse.org/lsp4e/snapshots/"/>
+		<repository location="https://download.eclipse.org/lsp4e/releases/latest/"/>
 	</location>
 	<location includeDependencyDepth="none" includeDependencyScopes="compile" includeSource="true" missingManifest="error" type="Maven">
 		<dependencies>
