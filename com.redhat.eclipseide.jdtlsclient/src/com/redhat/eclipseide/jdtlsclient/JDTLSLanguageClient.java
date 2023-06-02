@@ -27,7 +27,7 @@ public class JDTLSLanguageClient extends LanguageClientImpl implements JavaLangu
 		}
 		Command command = new Command(params.getCommand(), params.getCommand());
 		command.setArguments(params.getArguments());
-		CompletableFuture<Object> executeCommand = CommandExecutor.executeCommand(command, (IDocument)null, null);
+		CompletableFuture<Object> executeCommand = CommandExecutor.executeCommandClientSide(command, (IDocument)null);
 		return executeCommand != null ? executeCommand : CompletableFuture.completedFuture(new Exception("Unknown client-side command " + command));
 	}
 
