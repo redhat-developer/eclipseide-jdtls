@@ -8,7 +8,7 @@ Bundle-Vendor: Eclipse JDT
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: com.redhat.eclipseide.jdtlsclient.JDTLSClientPlugin
-Require-Bundle: org.eclipse.lsp4e;bundle-version="0.3.0",
+Require-Bundle: org.eclipse.lsp4e;bundle-version="0.16.0",
  org.eclipse.ui.genericeditor;bundle-version="1.0.0",
  org.eclipse.ui,
  org.eclipse.core.contenttype,
