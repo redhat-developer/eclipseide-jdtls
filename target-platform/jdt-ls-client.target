@@ -8,9 +8,8 @@
 		# Workaround https://github.com/eclipse/eclipse.jdt.ls/issues/2429 -->
 		<unit id="org.eclipse.buildship.feature.group" version="0.0.0"/>
 		<!-- Explicit version to have different versions of LSP4J -->
-		<unit id="org.eclipse.lsp4j" version="0.20.1.v20230228-1531"/>
 		<unit id="org.apache.commons.compress" version="1.22.0.v20221207-1049"/>
-		<repository location="http://download.eclipse.org/releases/2023-03/"/>
+		<repository location="http://download.eclipse.org/releases/2023-06/"/>
 	</location>
 	<!-- Actually required by JDT-LS, but marked as optional,
 	# Workaround https://github.com/eclipse/eclipse.jdt.ls/issues/2429 -->
@@ -38,7 +37,7 @@
 		<!-- transitive dep of LSP4J -->
 		<unit id="com.google.gson" version="2.10.1"/>
 		<unit id="org.mockito.mockito-core" version="0.0.0"/>
-		<repository location="https://download.eclipse.org/eclipse/updates/4.28-I-builds/"/>
+		<repository location="https://download.eclipse.org/eclipse/updates/4.29-I-builds/"/>
 	</location>
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="org.eclipse.jdt.ls.core" version="0.0.0"/>
