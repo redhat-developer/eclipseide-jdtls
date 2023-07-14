@@ -13,7 +13,7 @@ jobs:
         submodules: recursive
         fetch-depth: 0
     - name: Configure GPG Key
-      run: echo -n "$PGP_KEY" | gpg --import
+      run: echo -n "$PGP_KEY" | gpg --batch --import
       env:
         PGP_KEY: ${{ secrets.PGP_KEY }}
 
