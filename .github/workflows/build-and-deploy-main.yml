@@ -27,8 +27,10 @@ jobs:
       with:
         maven-version: 3.9.3
     - name: Build with Maven 🏗️
-      run: mvn -B clean verify -DskipTests -Dgpg.keyname=B65A772A26C6CFCD2ABEB352ACCF6EF34A59AB7C
+      run: mvn -B clean verify -DskipTests -Dgpg.keyname=B65A772A26C6CFCD2ABEB352ACCF6EF34A59AB7C -Dgpg.passphrase="$PGP_PASSPHRASE"
     - name: Deploy to GH-pages 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: repository/target/repository # The folder the action should deploy.
+      env:
+        PGP_PASSPHRASE: ${{ secrets.PGP_PASSPHRASE }}
