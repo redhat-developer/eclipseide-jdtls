@@ -63,25 +63,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<profiles>
-		<profile>
-			<id>pgp-sign</id>
-			<activation>
-				<property><name>gpg.keyname</name></property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>tycho-gpg-plugin</artifactId>
-						<version>${tycho-version}</version>
-						<goals>
-							<goal>sign-p2-artifacts</goal>
-						</goals>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 </project>

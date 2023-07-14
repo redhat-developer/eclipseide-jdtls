@@ -11,4 +11,29 @@
 	<packaging>eclipse-repository</packaging>
 	<name>JDT-LS in Eclipse IDE (p2 repository)</name>
 
+	<profiles>
+		<profile>
+			<id>pgp-sign</id>
+			<activation>
+				<property><name>gpg.keyname</name></property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-gpg-plugin</artifactId>
+						<version>${tycho-version}</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>sign-p2-artifacts</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 </project>
