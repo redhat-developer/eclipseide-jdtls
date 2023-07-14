@@ -76,6 +76,9 @@
 						<groupId>org.eclipse.tycho</groupId>
 						<artifactId>tycho-gpg-plugin</artifactId>
 						<version>${tycho-version}</version>
+						<goals>
+							<goal>sign-p2-artifacts</goal>
+						</goals>
 					</plugin>
 				</plugins>
 			</build>
