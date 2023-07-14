@@ -12,6 +12,11 @@ jobs:
       with:
         submodules: recursive
         fetch-depth: 0
+    - name: Configure GPG Key
+      run: echo -n "$PGP_KEY" | gpg --import
+      env:
+        PGP_KEY: ${{ secrets.PGP_KEY }}
+
     - name: Set up JDK 17 ☕
       uses: actions/setup-java@v3
       with:
@@ -22,7 +27,7 @@ jobs:
       with:
         maven-version: 3.9.3
     - name: Build with Maven 🏗️
-      run: mvn -B clean verify -DskipTests
+      run: mvn -B clean verify -DskipTests -Dgpg.keyname=B65A772A26C6CFCD2ABEB352ACCF6EF34A59AB7C
     - name: Deploy to GH-pages 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
