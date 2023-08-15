@@ -28,8 +28,4 @@ public class OrganizeImportsHandler extends AbstractHandler {
 		return null;
 	}
 
-	private URI getURI(ExecutionEvent event) {
-		return LSPEclipseUtils.toUri(HandlerUtil.getActiveEditorInput(event));
-	}
-
 }
