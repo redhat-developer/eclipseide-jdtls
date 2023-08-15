@@ -67,12 +67,12 @@ class TestLSPIntegration {
 
 	@Test
 	@Disabled(value = "Case of a .java in a non Java project folder is not yet supported")
-	public void testJavaFileInNonJavaProject() throws IOException, CoreException, BadLocationException {
+	void testJavaFileInNonJavaProject() throws IOException, CoreException, BadLocationException {
 		assertLSWorksInEditor(false);
 	}
 
 	@Test
-	public void testJavaFileInJavaProject() throws IOException, CoreException, BadLocationException {
+	void testJavaFileInJavaProject() throws IOException, CoreException, BadLocationException {
 		assertLSWorksInEditor(true);
 	}
 
