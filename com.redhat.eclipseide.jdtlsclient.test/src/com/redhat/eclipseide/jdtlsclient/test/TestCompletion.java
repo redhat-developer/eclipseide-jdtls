@@ -49,7 +49,7 @@ import org.junit.jupiter.api.Test;
 class TestCompletion {
 
 	@Test
-	public void testSyserr() throws Exception {
+	void testSyserr() throws Exception {
 		IProject project = (IProject) ResourcesPlugin.getWorkspace().getRoot().getProject(Long.toString(System.nanoTime()));
 		
 		project.create(TestLSPIntegration.projectDescWithJavaNature(project), null);
@@ -92,7 +92,7 @@ class TestCompletion {
 	};
 
 	@Test
-	public void testCompletionIndent() throws CoreException {
+	void testCompletionIndent() throws CoreException {
 		IProject project = (IProject) ResourcesPlugin.getWorkspace().getRoot().getProject(Long.toString(System.nanoTime()));
 		project.create(TestLSPIntegration.projectDescWithJavaNature(project), null);
 		project.open(null);
