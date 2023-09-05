@@ -3,7 +3,7 @@
       id="com.redhat.eclipseide.jdtlsclient.feature"
       label="JDT-LS integration in Eclipse IDE"
       version="0.1.0.qualifier"
-      provider-name="Red Hat, Inc.">
+      provider-name="Red Hat Developers">
 
    <description url="https://github.com/redhat-developer/eclipseide-jdtls/blob/main/README.md">
       A client for JDT-LS to provide edition of .java files in the Eclipse IDE.

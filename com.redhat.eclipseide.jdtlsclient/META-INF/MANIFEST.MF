@@ -4,7 +4,7 @@ Bundle-Name: Java edition support using JDT Language Server Client
 Bundle-SymbolicName: com.redhat.eclipseide.jdtlsclient;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Export-Package: com.redhat.eclipseide.jdtlsclient;x-friends:="com.redhat.eclipseide.jdtlsclient.test"
-Bundle-Vendor: Eclipse JDT
+Bundle-Vendor: Red Hat Developers
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: com.redhat.eclipseide.jdtlsclient.JDTLSClientPlugin
