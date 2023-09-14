@@ -7,7 +7,6 @@
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>repository</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
 	<packaging>eclipse-repository</packaging>
 	<name>JDT-LS in Eclipse IDE (p2 repository)</name>
 
