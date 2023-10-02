@@ -8,7 +8,7 @@
 	<packaging>pom</packaging>
 	<properties>
 		<base.name>JDT-LS in Eclipse IDE</base.name>
-		<tycho-version>4.0.2</tycho-version>
+		<tycho-version>4.0.3</tycho-version>
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<modules>
