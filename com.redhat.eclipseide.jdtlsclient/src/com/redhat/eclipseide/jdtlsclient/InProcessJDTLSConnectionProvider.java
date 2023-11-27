@@ -117,6 +117,7 @@ public class InProcessJDTLSConnectionProvider implements StreamConnectionProvide
 						"skipProjectConfiguration", true, //
 						// excluding all problems is more a quick-fix. We may want
 						// to only exclude some problems, not all of them.
-						"excludedMarkerTypes", List.of("org.eclipse.lsp4e.diagnostic")));
+						"excludedMarkerTypes", List.of("org.eclipse.lsp4e.diagnostic")),
+						"canUseInternalSettings", true);
 	}
 }
