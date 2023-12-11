@@ -28,7 +28,7 @@ jobs:
     - name: Set up Maven
       uses: stCarolas/setup-maven@v4.5
       with:
-        maven-version: 3.9.5
+        maven-version: 3.9.6
     - name: Build with Maven 🏗️
       run: mvn -B clean verify -DskipTests -Dgpg.keyname=B65A772A26C6CFCD2ABEB352ACCF6EF34A59AB7C -Dgpg.passphrase="$PGP_PASSPHRASE"
       env:
