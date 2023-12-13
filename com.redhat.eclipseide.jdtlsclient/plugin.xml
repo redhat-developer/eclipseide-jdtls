@@ -33,17 +33,13 @@
    </extension>
    <extension
          point="org.eclipse.tm4e.registry.grammars">
-      <grammar
-            path="grammars/java.tmLanguage.json"
-            scopeName="source.java">
-      </grammar>
       <scopeNameContentTypeBinding
             contentTypeId="org.eclipse.jdt.core.javaSource"
-            scopeName="source.java">
+            scopeName="lngpck.source.java">
       </scopeNameContentTypeBinding>
       <scopeNameContentTypeBinding
             contentTypeId="com.redhat.eclipseide.jdtlsclient.classWithSource"
-            scopeName="source.java">
+            scopeName="lngpck.source.java">
       </scopeNameContentTypeBinding>
    </extension>
    <extension
@@ -56,13 +52,6 @@
             class="org.eclipse.tm4e.ui.text.TMPresentationReconciler"
             contentType="com.redhat.eclipseide.jdtlsclient.classWithSource">
       </presentationReconciler>
-   </extension>
-   <extension
-         point="org.eclipse.tm4e.languageconfiguration.languageConfigurations">
-      <languageConfiguration
-            contentTypeId="org.eclipse.jdt.core.javaSource"
-            path="grammars/java.languageConfiguration.jsonc">
-      </languageConfiguration>
    </extension>
    <extension
          point="org.eclipse.ui.navigator.navigatorContent">
