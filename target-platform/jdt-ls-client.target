@@ -11,7 +11,7 @@
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="org.eclipse.tm4e.feature.feature.group" version="0.0.0"/>
 		<unit id="org.eclipse.tm4e.language_pack" version="0.0.0"/>
-		<repository location="http://download.eclipse.org/tm4e/releases/latest/"/>
+		<repository location="https://download.eclipse.org/tm4e/snapshots/"/>
 	</location>
 	<!-- Actually required by JDT-LS, but marked as optional,
 	# Workaround https://github.com/eclipse/eclipse.jdt.ls/issues/2429 -->

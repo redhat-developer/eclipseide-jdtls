@@ -35,11 +35,11 @@
          point="org.eclipse.tm4e.registry.grammars">
       <scopeNameContentTypeBinding
             contentTypeId="org.eclipse.jdt.core.javaSource"
-            scopeName="lngpck.source.java">
+            scopeName="source.java">
       </scopeNameContentTypeBinding>
       <scopeNameContentTypeBinding
             contentTypeId="com.redhat.eclipseide.jdtlsclient.classWithSource"
-            scopeName="lngpck.source.java">
+            scopeName="source.java">
       </scopeNameContentTypeBinding>
    </extension>
    <extension
