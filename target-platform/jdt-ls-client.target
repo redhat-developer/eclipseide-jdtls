@@ -48,7 +48,7 @@
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="org.eclipse.lsp4j" version="0.0.0"/>
 		<unit id="org.eclipse.lsp4j.jsonrpc" version="0.0.0"/>
-		<repository location="https://download.eclipse.org/lsp4j/updates/releases/0.21.1/"/>
+		<repository location="https://download.eclipse.org/lsp4j/updates/releases/0.21.2/"/>
 	</location>
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="org.eclipse.lsp4e" version="0.0.0"/>
