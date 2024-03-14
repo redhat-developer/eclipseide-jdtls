@@ -6,12 +6,12 @@
 		<!-- Actually required by JDT-LS, but marked as optional,
 		# Workaround https://github.com/eclipse/eclipse.jdt.ls/issues/2429 -->
 		<unit id="org.eclipse.buildship.feature.group" version="0.0.0"/>
-		<repository location="http://download.eclipse.org/releases/2023-12/"/>
+		<repository location="http://download.eclipse.org/releases/2024-03/"/>
 	</location>
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="org.eclipse.tm4e.feature.feature.group" version="0.0.0"/>
 		<unit id="org.eclipse.tm4e.language_pack" version="0.0.0"/>
-		<repository location="https://download.eclipse.org/tm4e/snapshots/"/>
+		<repository location="https://download.eclipse.org/tm4e/releases/latest"/>
 	</location>
 	<!-- Actually required by JDT-LS, but marked as optional,
 	# Workaround https://github.com/eclipse/eclipse.jdt.ls/issues/2429 -->
@@ -38,7 +38,7 @@
 		<unit id="org.mockito.mockito-core" version="0.0.0"/>
 		<!-- transitive dep of LSP4J -->
 		<unit id="com.google.gson" version="2.10.1"/>
-		<repository location="https://download.eclipse.org/eclipse/updates/4.31-I-builds/"/>
+		<repository location="https://download.eclipse.org/eclipse/updates/4.32-I-builds/"/>
 	</location>
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 		<unit id="org.eclipse.jdt.ls.core" version="0.0.0"/>
@@ -60,7 +60,7 @@
 			<dependency>
 				<groupId>com.microsoft.java</groupId>
 				<artifactId>com.microsoft.java.debug.plugin</artifactId>
-				<version>0.51.0</version>
+				<version>0.51.1</version>
 				<type>jar</type>
 			</dependency>
 		</dependencies>
